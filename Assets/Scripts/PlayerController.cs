@@ -16,11 +16,16 @@ public class PlayerController : MonoBehaviour
 
     private Camera camara;
     private Rigidbody fisica;
+    private ObjectPool bolaPool;
+    private WeaponController arma;
 
     private void Awake()
     {
         camara = Camera.main;
         fisica = GetComponent<Rigidbody>();
+        arma = GetComponent<WeaponController>();
+
+        Cursor.lockState = CursorLockMode.Locked;
     }
     // Start is called before the first frame update
     void Start()
@@ -36,6 +41,13 @@ public class PlayerController : MonoBehaviour
         if (Input.GetButtonDown("Jump"))
         {
             Salto();
+        }
+        if (Input.GetButton("Fire1"))
+        {
+            if (arma.PuedeDisparar())
+            {
+                arma.Disparar();
+            }
         }
     }
 
