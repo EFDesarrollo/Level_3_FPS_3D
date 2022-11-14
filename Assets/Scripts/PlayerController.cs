@@ -16,7 +16,6 @@ public class PlayerController : MonoBehaviour
 
     private Camera camara;
     private Rigidbody fisica;
-    private ObjectPool bolaPool;
     private WeaponController arma;
 
     private void Awake()
@@ -44,9 +43,9 @@ public class PlayerController : MonoBehaviour
         }
         if (Input.GetButton("Fire1"))
         {
-            if (arma.PuedeDisparar())
+            if (arma.CanShoot())
             {
-                arma.Disparar();
+                arma.Shoot();
             }
         }
     }

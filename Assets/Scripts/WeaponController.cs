@@ -29,7 +29,7 @@ public class WeaponController : MonoBehaviour
         }
         bolaPool = GetComponent<ObjectPool>();
     }
-    public bool PuedeDisparar()
+    public bool CanShoot()
     {
         if (Time.time - ultimoTimepoDisparo > frecuenciaDisparo)
         {
@@ -40,7 +40,7 @@ public class WeaponController : MonoBehaviour
         }
         return false;
     }
-    public void Disparar()
+    public void Shoot()
     {
         ultimoTimepoDisparo = Time.time;
         municionActual--;
